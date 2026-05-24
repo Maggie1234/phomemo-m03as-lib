@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "phomemo-m03as"
+name = "phomemo-m03as-lib"
 version = "0.1.0"
 description = "Python library for controlling Phomemo M03AS / YinXianSen thermal printers via USB or BLE"
 readme = "README.md"
@@ -37,8 +37,8 @@ ble = ["bleak>=0.21.0"]
 dev = ["pytest>=7.0", "pytest-asyncio>=0.21"]
 
 [project.urls]
-Homepage = "https://github.com/YinXianSen/phomemo-m03as"
-Repository = "https://github.com/YinXianSen/phomemo-m03as"
+Homepage = "https://github.com/YinXianSen/phomemo-m03as-lib"
+Repository = "https://github.com/YinXianSen/phomemo-m03as-lib"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/phomemo"]

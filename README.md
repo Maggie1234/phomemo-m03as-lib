@@ -1,4 +1,4 @@
-# phomemo-m03as
+# phomemo-m03as-lib
 
 Python library for controlling **Phomemo M03AS** / **YinXianSen** 300 DPI thermal printers via USB or Bluetooth.
 
@@ -15,10 +15,10 @@ Python library for controlling **Phomemo M03AS** / **YinXianSen** 300 DPI therma
 
 ```bash
 # USB only (recommended for Home Assistant)
-pip install phomemo-m03as
+pip install phomemo-m03as-lib
 
 # With Bluetooth support
-pip install "phomemo-m03as[ble]"
+pip install "phomemo-m03as-lib[ble]"
 ```
 
 ## Quick Start
