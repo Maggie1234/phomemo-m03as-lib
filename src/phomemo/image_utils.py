@@ -63,7 +63,7 @@ def image_to_bitmap(
     # Gamma 校正（参考 phomymo canvas.js，gamma=1.3，提升热敏打印中间调细节）
     arr_f = np.asarray(img, dtype=np.float32)
     arr_f = 255.0 * np.power(arr_f / 255.0, 1.0 / 1.3)
-    img = Image.fromarray(arr_f.astype(np.uint8), mode="L")
+    img = Image.fromarray(arr_f.astype(np.uint8))
 
     if dither:
         img_1bit = img.convert("1", dither=Image.Dither.FLOYDSTEINBERG)

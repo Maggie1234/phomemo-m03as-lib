@@ -14,11 +14,17 @@ _VID_PID = {(0x0416, 0x5011), (0x1a86, 0x7523)}
 _DESC_KW = ["phomemo", "yinxianSen", "yin xian", "printer"]
 
 
+try:
+    import serial.tools.list_ports as lp
+    import serial
+except ImportError:
+    lp = None      # type: ignore[assignment]
+    serial = None  # type: ignore[assignment]
+
+
 def find_usb_port() -> str | None:
     """扫描串口，返回最可能是打印机的端口名，找不到返回 None"""
-    try:
-        import serial.tools.list_ports as lp
-    except ImportError:
+    if lp is None:
         return None
 
     candidates: list[tuple[int, str]] = []
@@ -49,7 +55,8 @@ class UsbTransport:
         self._serial = None
 
     def connect(self) -> None:
-        import serial
+        if serial is None:
+            raise ImportError("USB 模式需要 pyserial。请运行：pip install pyserial")
         log.info(f"USB 连接 {self.port}（{_BAUD_RATE} baud）")
         try:
             self._serial = serial.Serial(self.port, _BAUD_RATE, timeout=2)
