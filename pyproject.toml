@@ -41,8 +41,8 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/YinXianSen/phomemo-m03as-lib"
-Repository = "https://github.com/YinXianSen/phomemo-m03as-lib"
+Homepage = "https://github.com/Maggie1234/phomemo-m03as-lib"
+Repository = "https://github.com/Maggie1234/phomemo-m03as-lib"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/phomemo"]
