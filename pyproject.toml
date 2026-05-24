@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "phomemo-m03as"
+version = "0.1.0"
+description = "Python library for controlling Phomemo M03AS / YinXianSen thermal printers via USB or BLE"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.9"
+authors = [{ name = "YinXianSen" }]
+keywords = ["phomemo", "m03as", "thermal", "printer", "ble", "usb"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Hardware :: Hardware Drivers",
+]
+
+# 核心依赖（USB 串口 + 图像处理）
+dependencies = [
+    "Pillow>=10.0.0",
+    "numpy>=1.24.0",
+    "pyserial>=3.5",
+]
+
+[project.optional-dependencies]
+# 蓝牙支持（可选，Home Assistant 小主机用 USB 不需要）
+ble = ["bleak>=0.21.0"]
+# 开发工具
+dev = ["pytest>=7.0", "pytest-asyncio>=0.21"]
+
+[project.urls]
+Homepage = "https://github.com/YinXianSen/phomemo-m03as"
+Repository = "https://github.com/YinXianSen/phomemo-m03as"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/phomemo"]
